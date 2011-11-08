@@ -1,0 +1,78 @@
+---
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :post
+    uri: https://www.google.com:443/accounts/ClientLogin
+    body: accountType=HOSTED_OR_GOOGLE&service=urlshortener&source=gem-googl-ruby&Email=my_user%40gmail.com&Passwd=my_valid_password
+    headers:
+      content-type:
+      - application/x-www-form-urlencoded
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: OK
+    headers:
+      content-type:
+      - text/plain
+      cache-control:
+      - no-cache, no-store
+      pragma:
+      - no-cache
+      expires:
+      - Mon, 01-Jan-1990 00:00:00 GMT
+      date:
+      - Tue, 08 Nov 2011 02:39:09 GMT
+      x-content-type-options:
+      - nosniff
+      x-xss-protection:
+      - 1; mode=block
+      content-length:
+      - '839'
+      server:
+      - GSE
+    body: ! 'SID=DQAAAL4AAABsdHI1AY3Q4t8Oy3B0x9Gb3oqiLqxJ2jkyaeLuShuSlDCaXxzb-UC_-lbhjTAvbPdpD7wrVNbKBMHvOGZOphcIqmjaAa9x0ybcO6D2vIlwF86tCN98gZkdGaEIJboSnz7aBRci-bmt-gXH_DE8djb2uUjrV2SWvYr8GyOuza52ZTGGOBFq-9VmoVLyG4TW14XpMzOJGuV0FQqUivLoq7BbmbRANYpsWTBhZCpeVYPOCPpfCQFDrhjBg8z1dJ-pHPk
+
+      LSID=DQAAAMAAAAD4DeB80-mh8d2vNMKlVPL_8TcUAUR4rjN8odzb-s82p_ZT68W9O5ZxHTg5PhLn8FRCwx7TsXzWRFGVkvLIBYDk0_970L3oSm3XrjGBsuLzwUkPt40Ll0KWrpJ_fbDJzFMXh51jk-HKxlUrGddD9L38dDeCE1z62Tjq2Qp1ALv-mSRDr-ZuSEGNFDfKwlXm-J_5GlJfCL_K4GC9Ulmh6WE6ghfCCGWICi2ggjI8simzt5SUJhC5p5NCfVvB5NArgfY
+
+      Auth=DQAAAMEAAAD7g1OyI_forG19zE7w97Q5YyBjRqcnbSqVpKAOcWHRbh-mIBs4Z8I2luGqfhlxzKOBJO62BosGH69YSiaoO_e4fwq4LD2W1lnbJ-6dRg1tfdA16FR-ZKZA0Q0e2NFToEfiDTl_RU6Me4x4eZkpTnASXtz4Q8iTbA9NFXzVsCcKHep-bdvXLPH1zgaUNIg17fHAy9m2EhcNeyEOa-w8MuPTQUIl--hwICS6bB-0-sUAdnOjXpo47nykarnku2UC__WO4ihS5Wn2E1RmArMCsrJn
+
+'
+    http_version: '1.1'
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :post
+    uri: https://www.googleapis.com:443/urlshortener/v1/url
+    body: ! '{"longUrl":"http://www.zigotto.net"}'
+    headers:
+      content-type:
+      - application/json
+      authorization:
+      - GoogleLogin auth=DQAAAMEAAAD7g1OyI_forG19zE7w97Q5YyBjRqcnbSqVpKAOcWHRbh-mIBs4Z8I2luGqfhlxzKOBJO62BosGH69YSiaoO_e4fwq4LD2W1lnbJ-6dRg1tfdA16FR-ZKZA0Q0e2NFToEfiDTl_RU6Me4x4eZkpTnASXtz4Q8iTbA9NFXzVsCcKHep-bdvXLPH1zgaUNIg17fHAy9m2EhcNeyEOa-w8MuPTQUIl--hwICS6bB-0-sUAdnOjXpo47nykarnku2UC__WO4ihS5Wn2E1RmArMCsrJn
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: OK
+    headers:
+      cache-control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      pragma:
+      - no-cache
+      expires:
+      - Fri, 01 Jan 1990 00:00:00 GMT
+      date:
+      - Tue, 08 Nov 2011 02:39:13 GMT
+      etag:
+      - ! '"gZm6aHnNo6d7AXQFZSXg_sJQlBw/rP1NAiZz2xw1qji8Wk2JcEsViJY"'
+      content-type:
+      - application/json; charset=UTF-8
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - SAMEORIGIN
+      x-xss-protection:
+      - 1; mode=block
+      server:
+      - GSE
+    body: ! "{\n \"kind\": \"urlshortener#url\",\n \"id\": \"http://goo.gl/p2QHY\",\n
+      \"longUrl\": \"http://www.zigotto.net/\"\n}\n"
+    http_version: '1.1'

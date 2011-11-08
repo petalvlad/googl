@@ -3,7 +3,6 @@ require 'spec_helper'
 describe Googl::ClientLogin do
 
   before :each do
-    fake_urls? true
   end
 
   context "request a new client login" do
@@ -11,6 +10,8 @@ describe Googl::ClientLogin do
     it { Googl.should respond_to(:client) }
 
     context "when valid" do
+
+      use_vcr_cassette "valid_credentials", :record => :new_episodes
 
       subject { Googl.client('my_user@gmail.com', 'my_valid_password') }
 
@@ -24,6 +25,8 @@ describe Googl::ClientLogin do
 
     context "when invalid" do
 
+      use_vcr_cassette "invalid_credentials", :record => :new_episodes
+
       it "should return BadAuthentication" do
         lambda { Googl.client('my_invalid_gmail', 'my_invalid_passwod') }.should raise_error(Exception, /403 Error=BadAuthentication/)
       end
@@ -33,6 +36,8 @@ describe Googl::ClientLogin do
   end
 
   context "request new short url" do
+
+    use_vcr_cassette "short_url", :record => :new_episodes
 
     before :each do
       @client = Googl.client('my_user@gmail.com', 'my_valid_password') 
@@ -52,6 +57,8 @@ describe Googl::ClientLogin do
 
   context "when gets a user history of shortened" do
 
+    use_vcr_cassette "user_history", :record => :new_episodes
+
     let(:client) { Googl.client('my_user@gmail.com', 'my_valid_password')  }
 
     it { client.should respond_to(:history) }
@@ -68,14 +75,16 @@ describe Googl::ClientLogin do
       let(:item) { subject.items.first }
 
       it { item.kind.should == 'urlshortener#url'}
-      it { item.label.should == 'http://goo.gl/Ue8sQ' }
-      it { item.long_url.should == 'http://facebook.com/' }
+      it { item.label.should == 'http://goo.gl/p2QHY' }
+      it { item.long_url.should == 'http://www.zigotto.net/' }
       it { item.status.should == 'OK' }
       it { item.created.should be_instance_of(Time)}
 
     end
 
     context "with projection" do
+
+      use_vcr_cassette "user_history_with_projection", :record => :new_episodes
 
       context "analytics_clicks" do
 
