@@ -3,10 +3,22 @@ $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 
 require "rubygems"
 require "rspec"
-require 'webmock/rspec'
+require 'vcr'
+
 require 'googl'
 
 require 'shared_examples'
+
+RSpec.configure do |config|
+  config.extend VCR::RSpec::Macros
+end
+
+VCR.config do |c|
+  c.cassette_library_dir = 'spec/fixtures/cassette'
+  c.stub_with :fakeweb
+  c.default_cassette_options = { :record => :none }
+  c.allow_http_connections_when_no_cassette = false
+end
 
 def load_fixture(name)
   File.new(File.join(File.expand_path(File.dirname(__FILE__)), '/fixtures', name))
