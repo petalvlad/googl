@@ -2,10 +2,6 @@ require 'spec_helper'
 
 describe Googl::Shorten do
 
-  before :each do
-    fake_urls? true
-  end
-
   context "when request new short url" do
 
     it { Googl.should respond_to(:shorten) }
@@ -13,17 +9,14 @@ describe Googl::Shorten do
     context "with invalid url" do
 
       it "should return error for required url" do
-        lambda { Googl.shorten }.should raise_error(ArgumentError, "URL to shorten is required")
+        expect { Googl.shorten }.to raise_error(ArgumentError, "URL to shorten is required")
       end
 
-      it "should return Unsupported content with type" do
-        Googl::Request.headers.delete('Content-Type')
-        lambda { Googl.shorten('http://www.uol.com') }.should raise_error(Exception, /Unsupported content with type: application\/x-www-form-urlencoded/)
-      end
-      
     end
 
     context "with valid url" do
+
+      use_vcr_cassette "shorten_valid_url", :record => :new_episodes
 
       subject { Googl.shorten('http://www.zigotto.com') }
 
