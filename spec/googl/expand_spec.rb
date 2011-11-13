@@ -1,16 +1,15 @@
 require 'spec_helper'
 
+# TODO make shared examples
 describe Googl::Expand do
-
-  before :each do
-    fake_urls? true
-  end
 
   context "when expand any goo.gl short URL" do
 
     it { Googl.should respond_to(:expand) }
 
     context "wirh invalid url" do
+
+      use_vcr_cassette "expand_invalid_url", :record => :new_episodes
 
       it "should return error 404" do
         lambda { Googl.expand('http://goo.gl/blajjddkksijj') }.should raise_error(Exception, /404 Not Found/)
@@ -27,6 +26,8 @@ describe Googl::Expand do
     end
 
     context "with valid url" do
+
+      use_vcr_cassette "expand_valid_url", :record => :new_episodes
 
       subject { Googl.expand('http://goo.gl/7lob') }
 
@@ -72,8 +73,32 @@ describe Googl::Expand do
           describe "#all_time" do
             let(:element) { subject.analytics.all_time }
 
-            it_should_behave_like 'a clicks'
-            it_should_behave_like 'a period'
+            describe "#referrers" do
+              it { element.should respond_to(:referrers) }
+              it { element.referrers.first.should respond_to(:count) }
+              it { element.referrers.first.should respond_to(:label) }
+            end
+
+            describe "#countries" do
+              it { element.should respond_to(:countries) }
+              it { element.countries.first.should respond_to(:count) }
+              it { element.countries.first.should respond_to(:label) }
+            end
+
+            describe "#browsers" do
+              it { element.should respond_to(:browsers) }
+              it { element.browsers.first.should respond_to(:count) }
+              it { element.browsers.first.should respond_to(:label) }
+            end
+
+            describe "#platforms" do
+              it { element.should respond_to(:platforms) }
+              it { element.platforms.first.should respond_to(:count) }
+              it { element.platforms.first.should respond_to(:label) }
+            end
+
+            it { element.should respond_to(:short_url_clicks) }
+            it { element.should respond_to(:long_url_clicks) }
 
             it "should rename id to label" do
               element.countries.first.label.should == "BR"
@@ -83,28 +108,121 @@ describe Googl::Expand do
           describe "#month" do
             let(:element) { subject.analytics.month }
 
-            it_should_behave_like 'a clicks'
-            it_should_behave_like 'a period'
+            describe "#short_url_clicks" do
+              it { element.should respond_to(:short_url_clicks) }
+            end
+
+            describe "#long_url_clicks" do
+              it { element.should respond_to(:long_url_clicks) }
+            end
+
+            describe "#referrers" do
+              it { element.should respond_to(:referrers) }
+              it { element.referrers.first.should respond_to(:count) }
+              it { element.referrers.first.should respond_to(:label) }
+            end
+
+            describe "#countries" do
+              it { element.should respond_to(:countries) }
+              it { element.countries.first.should respond_to(:count) }
+              it { element.countries.first.should respond_to(:label) }
+            end
+
+            describe "#browsers" do
+              it { element.should respond_to(:browsers) }
+              it { element.browsers.first.should respond_to(:count) }
+              it { element.browsers.first.should respond_to(:label) }
+            end
+
+            describe "#platforms" do
+              it { element.should respond_to(:platforms) }
+              it { element.platforms.first.should respond_to(:count) }
+              it { element.platforms.first.should respond_to(:label) }
+            end
           end
 
           describe "#week" do
             let(:element) { subject.analytics.week }
 
-            it_should_behave_like 'a clicks'
-            it_should_behave_like 'a period'
+            describe "#short_url_clicks" do
+              it { element.should respond_to(:short_url_clicks) }
+            end
+
+            describe "#long_url_clicks" do
+              it { element.should respond_to(:long_url_clicks) }
+            end
+
+            describe "#referrers" do
+              it { element.should respond_to(:referrers) }
+              it { element.referrers.first.should respond_to(:count) }
+              it { element.referrers.first.should respond_to(:label) }
+            end
+
+            describe "#countries" do
+              it { element.should respond_to(:countries) }
+              it { element.countries.first.should respond_to(:count) }
+              it { element.countries.first.should respond_to(:label) }
+            end
+
+            describe "#browsers" do
+              it { element.should respond_to(:browsers) }
+              it { element.browsers.first.should respond_to(:count) }
+              it { element.browsers.first.should respond_to(:label) }
+            end
+
+            describe "#platforms" do
+              it { element.should respond_to(:platforms) }
+              it { element.platforms.first.should respond_to(:count) }
+              it { element.platforms.first.should respond_to(:label) }
+            end
           end
 
           describe "#day" do
             let(:element) { subject.analytics.day }
 
-            it_should_behave_like 'a clicks'
-            it_should_behave_like 'a period'
+            describe "#short_url_clicks" do
+              it { element.should respond_to(:short_url_clicks) }
+            end
+
+            describe "#long_url_clicks" do
+              it { element.should respond_to(:long_url_clicks) }
+            end
+
+            describe "#referrers" do
+              it { element.should respond_to(:referrers) }
+              it { element.referrers.first.should respond_to(:count) }
+              it { element.referrers.first.should respond_to(:label) }
+            end
+
+            describe "#countries" do
+              it { element.should respond_to(:countries) }
+              it { element.countries.first.should respond_to(:count) }
+              it { element.countries.first.should respond_to(:label) }
+            end
+
+            describe "#browsers" do
+              it { element.should respond_to(:browsers) }
+              it { element.browsers.first.should respond_to(:count) }
+              it { element.browsers.first.should respond_to(:label) }
+            end
+
+            describe "#platforms" do
+              it { element.should respond_to(:platforms) }
+              it { element.platforms.first.should respond_to(:count) }
+              it { element.platforms.first.should respond_to(:label) }
+            end
           end
 
           describe "#two_hours" do
             let(:element) { subject.analytics.two_hours }
 
-            it_should_behave_like 'a clicks'
+            describe "#short_url_clicks" do
+              it { element.should respond_to(:short_url_clicks) }
+            end
+
+            describe "#long_url_clicks" do
+              it { element.should respond_to(:long_url_clicks) }
+            end
           end
 
         end
@@ -116,31 +234,61 @@ describe Googl::Expand do
           describe "#all_time" do
             let(:element) { subject.analytics.all_time }
 
-            it_should_behave_like 'a clicks'
+            describe "#short_url_clicks" do
+              it { element.should respond_to(:short_url_clicks) }
+            end
+
+            describe "#long_url_clicks" do
+              it { element.should respond_to(:long_url_clicks) }
+            end
           end
 
           describe "#month" do
             let(:element) { subject.analytics.month }
 
-            it_should_behave_like 'a clicks'
+            describe "#short_url_clicks" do
+              it { element.should respond_to(:short_url_clicks) }
+            end
+
+            describe "#long_url_clicks" do
+              it { element.should respond_to(:long_url_clicks) }
+            end
           end
 
           describe "#week" do
             let(:element) { subject.analytics.week }
 
-            it_should_behave_like 'a clicks'
+            describe "#short_url_clicks" do
+              it { element.should respond_to(:short_url_clicks) }
+            end
+
+            describe "#long_url_clicks" do
+              it { element.should respond_to(:long_url_clicks) }
+            end
           end
 
           describe "#day" do
             let(:element) { subject.analytics.day }
 
-            it_should_behave_like 'a clicks'
+            describe "#short_url_clicks" do
+              it { element.should respond_to(:short_url_clicks) }
+            end
+
+            describe "#long_url_clicks" do
+              it { element.should respond_to(:long_url_clicks) }
+            end
           end
 
           describe "#two_hours" do
             let(:element) { subject.analytics.two_hours }
 
-            it_should_behave_like 'a clicks'
+            describe "#short_url_clicks" do
+              it { element.should respond_to(:short_url_clicks) }
+            end
+
+            describe "#long_url_clicks" do
+              it { element.should respond_to(:long_url_clicks) }
+            end
           end
 
         end
@@ -152,25 +300,113 @@ describe Googl::Expand do
           describe "#all_time" do
             let(:element) { subject.analytics.all_time }
 
-            it_should_behave_like 'a period'
+            describe "#referrers" do
+              it { element.should respond_to(:referrers) }
+              it { element.referrers.first.should respond_to(:count) }
+              it { element.referrers.first.should respond_to(:label) }
+            end
+
+            describe "#countries" do
+              it { element.should respond_to(:countries) }
+              it { element.countries.first.should respond_to(:count) }
+              it { element.countries.first.should respond_to(:label) }
+            end
+
+            describe "#browsers" do
+              it { element.should respond_to(:browsers) }
+              it { element.browsers.first.should respond_to(:count) }
+              it { element.browsers.first.should respond_to(:label) }
+            end
+
+            describe "#platforms" do
+              it { element.should respond_to(:platforms) }
+              it { element.platforms.first.should respond_to(:count) }
+              it { element.platforms.first.should respond_to(:label) }
+            end
           end
 
           describe "#month" do
             let(:element) { subject.analytics.month }
 
-            it_should_behave_like 'a period'
+            describe "#referrers" do
+              it { element.should respond_to(:referrers) }
+              it { element.referrers.first.should respond_to(:count) }
+              it { element.referrers.first.should respond_to(:label) }
+            end
+
+            describe "#countries" do
+              it { element.should respond_to(:countries) }
+              it { element.countries.first.should respond_to(:count) }
+              it { element.countries.first.should respond_to(:label) }
+            end
+
+            describe "#browsers" do
+              it { element.should respond_to(:browsers) }
+              it { element.browsers.first.should respond_to(:count) }
+              it { element.browsers.first.should respond_to(:label) }
+            end
+
+            describe "#platforms" do
+              it { element.should respond_to(:platforms) }
+              it { element.platforms.first.should respond_to(:count) }
+              it { element.platforms.first.should respond_to(:label) }
+            end
           end
 
           describe "#week" do
             let(:element) { subject.analytics.week }
 
-            it_should_behave_like 'a period'
+            describe "#referrers" do
+              it { element.should respond_to(:referrers) }
+              it { element.referrers.first.should respond_to(:count) }
+              it { element.referrers.first.should respond_to(:label) }
+            end
+
+            describe "#countries" do
+              it { element.should respond_to(:countries) }
+              it { element.countries.first.should respond_to(:count) }
+              it { element.countries.first.should respond_to(:label) }
+            end
+
+            describe "#browsers" do
+              it { element.should respond_to(:browsers) }
+              it { element.browsers.first.should respond_to(:count) }
+              it { element.browsers.first.should respond_to(:label) }
+            end
+
+            describe "#platforms" do
+              it { element.should respond_to(:platforms) }
+              it { element.platforms.first.should respond_to(:count) }
+              it { element.platforms.first.should respond_to(:label) }
+            end
           end
 
           describe "#day" do
             let(:element) { subject.analytics.day }
 
-            it_should_behave_like 'a period'
+            describe "#referrers" do
+              it { element.should respond_to(:referrers) }
+              it { element.referrers.first.should respond_to(:count) }
+              it { element.referrers.first.should respond_to(:label) }
+            end
+
+            describe "#countries" do
+              it { element.should respond_to(:countries) }
+              it { element.countries.first.should respond_to(:count) }
+              it { element.countries.first.should respond_to(:label) }
+            end
+
+            describe "#browsers" do
+              it { element.should respond_to(:browsers) }
+              it { element.browsers.first.should respond_to(:count) }
+              it { element.browsers.first.should respond_to(:label) }
+            end
+
+            describe "#platforms" do
+              it { element.should respond_to(:platforms) }
+              it { element.platforms.first.should respond_to(:count) }
+              it { element.platforms.first.should respond_to(:label) }
+            end
           end
 
         end

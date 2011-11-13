@@ -1,0 +1,64 @@
+---
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: https://www.googleapis.com:443/urlshortener/v1/url?shortUrl=http%3A%2F%2Fgoo.gl%2Fblajjddkksijj
+    body: !!null 
+    headers: !!null 
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 404
+      message: Not Found
+    headers:
+      content-type:
+      - application/json; charset=UTF-8
+      date:
+      - Sun, 13 Nov 2011 22:32:52 GMT
+      expires:
+      - Sun, 13 Nov 2011 22:32:52 GMT
+      cache-control:
+      - private, max-age=0
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - SAMEORIGIN
+      x-xss-protection:
+      - 1; mode=block
+      server:
+      - GSE
+    body: ! "{\n \"error\": {\n  \"errors\": [\n   {\n    \"domain\": \"global\",\n
+      \   \"reason\": \"notFound\",\n    \"message\": \"Not Found\"\n   }\n  ],\n
+      \ \"code\": 404,\n  \"message\": \"Not Found\"\n }\n}\n"
+    http_version: '1.1'
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: https://www.googleapis.com:443/urlshortener/v1/url?shortUrl=http%3A%2F%2Fgoo.gl%2FR7f68
+    body: !!null 
+    headers: !!null 
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: OK
+    headers:
+      expires:
+      - Sun, 13 Nov 2011 22:32:53 GMT
+      date:
+      - Sun, 13 Nov 2011 22:32:53 GMT
+      cache-control:
+      - public, max-age=0, must-revalidate, no-transform
+      etag:
+      - ! '"gZm6aHnNo6d7AXQFZSXg_sJQlBw/Zn70o0WLJpVSVUlRSathYsa0RUo"'
+      content-type:
+      - application/json; charset=UTF-8
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - SAMEORIGIN
+      x-xss-protection:
+      - 1; mode=block
+      server:
+      - GSE
+    body: ! "{\n \"kind\": \"urlshortener#url\",\n \"id\": \"http://goo.gl/R7f68\",\n
+      \"status\": \"REMOVED\"\n}\n"
+    http_version: '1.1'

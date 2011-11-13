@@ -1,0 +1,211 @@
+---
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: https://www.googleapis.com:443/urlshortener/v1/url?shortUrl=http%3A%2F%2Fgoo.gl%2F7lob
+    body: !!null 
+    headers: !!null 
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: OK
+    headers:
+      expires:
+      - Sun, 13 Nov 2011 22:37:55 GMT
+      date:
+      - Sun, 13 Nov 2011 22:32:55 GMT
+      cache-control:
+      - public, max-age=300, must-revalidate, no-transform
+      age:
+      - '188'
+      etag:
+      - ! '"gZm6aHnNo6d7AXQFZSXg_sJQlBw/VeobFw28djvEWC7kobM06QnOoTs"'
+      content-type:
+      - application/json; charset=UTF-8
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - SAMEORIGIN
+      x-xss-protection:
+      - 1; mode=block
+      server:
+      - GSE
+    body: ! "{\n \"kind\": \"urlshortener#url\",\n \"id\": \"http://goo.gl/7lob\",\n
+      \"longUrl\": \"http://jlopes.zigotto.com.br/\",\n \"status\": \"OK\"\n}\n"
+    http_version: '1.1'
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: https://www.googleapis.com:443/urlshortener/v1/url?shortUrl=http%3A%2F%2Fgoo.gl%2FDWDfi&projection=full
+    body: !!null 
+    headers: !!null 
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: OK
+    headers:
+      expires:
+      - Sun, 13 Nov 2011 22:36:07 GMT
+      date:
+      - Sun, 13 Nov 2011 22:36:07 GMT
+      cache-control:
+      - public, max-age=0, must-revalidate, no-transform
+      etag:
+      - ! '"gZm6aHnNo6d7AXQFZSXg_sJQlBw/ijpAjvoDCwZVaVvYvwaPFaJ8EGM"'
+      content-type:
+      - application/json; charset=UTF-8
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - SAMEORIGIN
+      x-xss-protection:
+      - 1; mode=block
+      server:
+      - GSE
+    body: ! "{\n \"kind\": \"urlshortener#url\",\n \"id\": \"http://goo.gl/DWDfi\",\n
+      \"longUrl\": \"https://github.com/zigotto/googl\",\n \"status\": \"OK\",\n \"created\":
+      \"2011-01-13T03:48:10.309+00:00\",\n \"analytics\": {\n  \"allTime\": {\n   \"shortUrlClicks\":
+      \"27\",\n   \"longUrlClicks\": \"57\",\n   \"referrers\": [\n    {\n     \"count\":
+      \"23\",\n     \"id\": \"Unknown/empty\"\n    },\n    {\n     \"count\": \"4\",\n
+      \    \"id\": \"twitter.com\"\n    }\n   ],\n   \"countries\": [\n    {\n     \"count\":
+      \"22\",\n     \"id\": \"BR\"\n    },\n    {\n     \"count\": \"1\",\n     \"id\":
+      \"FR\"\n    },\n    {\n     \"count\": \"1\",\n     \"id\": \"IT\"\n    },\n
+      \   {\n     \"count\": \"1\",\n     \"id\": \"NO\"\n    },\n    {\n     \"count\":
+      \"1\",\n     \"id\": \"PT\"\n    },\n    {\n     \"count\": \"1\",\n     \"id\":
+      \"US\"\n    }\n   ],\n   \"browsers\": [\n    {\n     \"count\": \"12\",\n     \"id\":
+      \"Chrome\"\n    },\n    {\n     \"count\": \"9\",\n     \"id\": \"Firefox\"\n
+      \   },\n    {\n     \"count\": \"5\",\n     \"id\": \"Safari\"\n    },\n    {\n
+      \    \"count\": \"1\",\n     \"id\": \"Mobile\"\n    }\n   ],\n   \"platforms\":
+      [\n    {\n     \"count\": \"11\",\n     \"id\": \"Macintosh\"\n    },\n    {\n
+      \    \"count\": \"11\",\n     \"id\": \"Windows\"\n    },\n    {\n     \"count\":
+      \"2\",\n     \"id\": \"Linux\"\n    },\n    {\n     \"count\": \"2\",\n     \"id\":
+      \"Other Unix\"\n    },\n    {\n     \"count\": \"1\",\n     \"id\": \"iPhone\"\n
+      \   }\n   ]\n  },\n  \"month\": {\n   \"shortUrlClicks\": \"3\",\n   \"longUrlClicks\":
+      \"4\",\n   \"referrers\": [\n    {\n     \"count\": \"3\",\n     \"id\": \"Unknown/empty\"\n
+      \   }\n   ],\n   \"countries\": [\n    {\n     \"count\": \"3\",\n     \"id\":
+      \"BR\"\n    }\n   ],\n   \"browsers\": [\n    {\n     \"count\": \"3\",\n     \"id\":
+      \"Safari\"\n    }\n   ],\n   \"platforms\": [\n    {\n     \"count\": \"3\",\n
+      \    \"id\": \"Macintosh\"\n    }\n   ]\n  },\n  \"week\": {\n   \"shortUrlClicks\":
+      \"3\",\n   \"longUrlClicks\": \"3\",\n   \"referrers\": [\n    {\n     \"count\":
+      \"3\",\n     \"id\": \"Unknown/empty\"\n    }\n   ],\n   \"countries\": [\n
+      \   {\n     \"count\": \"3\",\n     \"id\": \"BR\"\n    }\n   ],\n   \"browsers\":
+      [\n    {\n     \"count\": \"3\",\n     \"id\": \"Safari\"\n    }\n   ],\n   \"platforms\":
+      [\n    {\n     \"count\": \"3\",\n     \"id\": \"Macintosh\"\n    }\n   ]\n
+      \ },\n  \"day\": {\n   \"shortUrlClicks\": \"2\",\n   \"longUrlClicks\": \"2\",\n
+      \  \"referrers\": [\n    {\n     \"count\": \"2\",\n     \"id\": \"Unknown/empty\"\n
+      \   }\n   ],\n   \"countries\": [\n    {\n     \"count\": \"2\",\n     \"id\":
+      \"BR\"\n    }\n   ],\n   \"browsers\": [\n    {\n     \"count\": \"2\",\n     \"id\":
+      \"Safari\"\n    }\n   ],\n   \"platforms\": [\n    {\n     \"count\": \"2\",\n
+      \    \"id\": \"Macintosh\"\n    }\n   ]\n  },\n  \"twoHours\": {\n   \"shortUrlClicks\":
+      \"2\",\n   \"longUrlClicks\": \"2\",\n   \"referrers\": [\n    {\n     \"count\":
+      \"2\",\n     \"id\": \"Unknown/empty\"\n    }\n   ],\n   \"countries\": [\n
+      \   {\n     \"count\": \"2\",\n     \"id\": \"BR\"\n    }\n   ],\n   \"browsers\":
+      [\n    {\n     \"count\": \"2\",\n     \"id\": \"Safari\"\n    }\n   ],\n   \"platforms\":
+      [\n    {\n     \"count\": \"2\",\n     \"id\": \"Macintosh\"\n    }\n   ]\n
+      \ }\n }\n}\n"
+    http_version: '1.1'
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: https://www.googleapis.com:443/urlshortener/v1/url?shortUrl=http%3A%2F%2Fgoo.gl%2FDWDfi&projection=analytics_clicks
+    body: !!null 
+    headers: !!null 
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: OK
+    headers:
+      expires:
+      - Sun, 13 Nov 2011 22:36:09 GMT
+      date:
+      - Sun, 13 Nov 2011 22:36:09 GMT
+      cache-control:
+      - public, max-age=0, must-revalidate, no-transform
+      etag:
+      - ! '"gZm6aHnNo6d7AXQFZSXg_sJQlBw/yXzagvIwXWXnzeoh4KsmGMHwL-Q"'
+      content-type:
+      - application/json; charset=UTF-8
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - SAMEORIGIN
+      x-xss-protection:
+      - 1; mode=block
+      server:
+      - GSE
+    body: ! "{\n \"kind\": \"urlshortener#url\",\n \"id\": \"http://goo.gl/DWDfi\",\n
+      \"longUrl\": \"https://github.com/zigotto/googl\",\n \"status\": \"OK\",\n \"analytics\":
+      {\n  \"allTime\": {\n   \"shortUrlClicks\": \"27\",\n   \"longUrlClicks\": \"57\"\n
+      \ },\n  \"month\": {\n   \"shortUrlClicks\": \"3\",\n   \"longUrlClicks\": \"4\"\n
+      \ },\n  \"week\": {\n   \"shortUrlClicks\": \"3\",\n   \"longUrlClicks\": \"3\"\n
+      \ },\n  \"day\": {\n   \"shortUrlClicks\": \"2\",\n   \"longUrlClicks\": \"2\"\n
+      \ },\n  \"twoHours\": {\n   \"shortUrlClicks\": \"2\",\n   \"longUrlClicks\":
+      \"2\"\n  }\n }\n}\n"
+    http_version: '1.1'
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: https://www.googleapis.com:443/urlshortener/v1/url?shortUrl=http%3A%2F%2Fgoo.gl%2FDWDfi&projection=analytics_top_strings
+    body: !!null 
+    headers: !!null 
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: OK
+    headers:
+      expires:
+      - Sun, 13 Nov 2011 22:36:10 GMT
+      date:
+      - Sun, 13 Nov 2011 22:36:10 GMT
+      cache-control:
+      - public, max-age=0, must-revalidate, no-transform
+      etag:
+      - ! '"gZm6aHnNo6d7AXQFZSXg_sJQlBw/4r4IDiKy3OQY73U-Kie3y6X77ic"'
+      content-type:
+      - application/json; charset=UTF-8
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - SAMEORIGIN
+      x-xss-protection:
+      - 1; mode=block
+      server:
+      - GSE
+    body: ! "{\n \"kind\": \"urlshortener#url\",\n \"id\": \"http://goo.gl/DWDfi\",\n
+      \"longUrl\": \"https://github.com/zigotto/googl\",\n \"status\": \"OK\",\n \"analytics\":
+      {\n  \"allTime\": {\n   \"referrers\": [\n    {\n     \"count\": \"23\",\n     \"id\":
+      \"Unknown/empty\"\n    },\n    {\n     \"count\": \"4\",\n     \"id\": \"twitter.com\"\n
+      \   }\n   ],\n   \"countries\": [\n    {\n     \"count\": \"22\",\n     \"id\":
+      \"BR\"\n    },\n    {\n     \"count\": \"1\",\n     \"id\": \"FR\"\n    },\n
+      \   {\n     \"count\": \"1\",\n     \"id\": \"IT\"\n    },\n    {\n     \"count\":
+      \"1\",\n     \"id\": \"NO\"\n    },\n    {\n     \"count\": \"1\",\n     \"id\":
+      \"PT\"\n    },\n    {\n     \"count\": \"1\",\n     \"id\": \"US\"\n    }\n
+      \  ],\n   \"browsers\": [\n    {\n     \"count\": \"12\",\n     \"id\": \"Chrome\"\n
+      \   },\n    {\n     \"count\": \"9\",\n     \"id\": \"Firefox\"\n    },\n    {\n
+      \    \"count\": \"5\",\n     \"id\": \"Safari\"\n    },\n    {\n     \"count\":
+      \"1\",\n     \"id\": \"Mobile\"\n    }\n   ],\n   \"platforms\": [\n    {\n
+      \    \"count\": \"11\",\n     \"id\": \"Macintosh\"\n    },\n    {\n     \"count\":
+      \"11\",\n     \"id\": \"Windows\"\n    },\n    {\n     \"count\": \"2\",\n     \"id\":
+      \"Linux\"\n    },\n    {\n     \"count\": \"2\",\n     \"id\": \"Other Unix\"\n
+      \   },\n    {\n     \"count\": \"1\",\n     \"id\": \"iPhone\"\n    }\n   ]\n
+      \ },\n  \"month\": {\n   \"referrers\": [\n    {\n     \"count\": \"3\",\n     \"id\":
+      \"Unknown/empty\"\n    }\n   ],\n   \"countries\": [\n    {\n     \"count\":
+      \"3\",\n     \"id\": \"BR\"\n    }\n   ],\n   \"browsers\": [\n    {\n     \"count\":
+      \"3\",\n     \"id\": \"Safari\"\n    }\n   ],\n   \"platforms\": [\n    {\n
+      \    \"count\": \"3\",\n     \"id\": \"Macintosh\"\n    }\n   ]\n  },\n  \"week\":
+      {\n   \"referrers\": [\n    {\n     \"count\": \"3\",\n     \"id\": \"Unknown/empty\"\n
+      \   }\n   ],\n   \"countries\": [\n    {\n     \"count\": \"3\",\n     \"id\":
+      \"BR\"\n    }\n   ],\n   \"browsers\": [\n    {\n     \"count\": \"3\",\n     \"id\":
+      \"Safari\"\n    }\n   ],\n   \"platforms\": [\n    {\n     \"count\": \"3\",\n
+      \    \"id\": \"Macintosh\"\n    }\n   ]\n  },\n  \"day\": {\n   \"referrers\":
+      [\n    {\n     \"count\": \"2\",\n     \"id\": \"Unknown/empty\"\n    }\n   ],\n
+      \  \"countries\": [\n    {\n     \"count\": \"2\",\n     \"id\": \"BR\"\n    }\n
+      \  ],\n   \"browsers\": [\n    {\n     \"count\": \"2\",\n     \"id\": \"Safari\"\n
+      \   }\n   ],\n   \"platforms\": [\n    {\n     \"count\": \"2\",\n     \"id\":
+      \"Macintosh\"\n    }\n   ]\n  },\n  \"twoHours\": {\n   \"referrers\": [\n    {\n
+      \    \"count\": \"2\",\n     \"id\": \"Unknown/empty\"\n    }\n   ],\n   \"countries\":
+      [\n    {\n     \"count\": \"2\",\n     \"id\": \"BR\"\n    }\n   ],\n   \"browsers\":
+      [\n    {\n     \"count\": \"2\",\n     \"id\": \"Safari\"\n    }\n   ],\n   \"platforms\":
+      [\n    {\n     \"count\": \"2\",\n     \"id\": \"Macintosh\"\n    }\n   ]\n
+      \ }\n }\n}\n"
+    http_version: '1.1'
