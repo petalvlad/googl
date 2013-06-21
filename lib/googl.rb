@@ -25,7 +25,11 @@ module Googl
   #
   def shorten(url=nil)
     raise ArgumentError.new("URL to shorten is required") if url.blank?
-    Googl::Shorten.new(url)
+    Googl::Shorten.new(url, @api_key)
+  end
+
+  def self.api_key=(k)
+    @api_key = k
   end
 
   # Expands a short URL or gets creation time and analytics

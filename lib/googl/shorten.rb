@@ -8,9 +8,13 @@ module Googl
 
     # Creates a new short URL, see Googl.shorten
     #
-    def initialize(long_url)
+    def initialize(long_url, api_key = nil)
       modify_headers('Content-Type' => 'application/json')
-      options = {"longUrl" => long_url}.to_json
+      if api_key.nil?
+        options = {"longUrl" => long_url}.to_json
+      else
+        options = {"longUrl" => long_url, "key" => api_key}.to_json
+      end
       resp = post(API_URL, :body => options)
       if resp.code == 200
         self.short_url  = resp['id']
