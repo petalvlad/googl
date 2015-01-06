@@ -13,7 +13,7 @@ module Googl
 
       url = api_key.nil? ? API_URL : "#{API_URL}?key=#{api_key}"
       options = {"longUrl" => long_url}.to_json
-      
+      p url
       resp = post(url, :body => options)
       if resp.code == 200
         self.short_url  = resp['id']
